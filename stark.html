@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+    <title>משחקי הכס</title>
+
+	
+	
+    
+		
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- Your own style files go here; AFTER bootstrap.css -->
+
+
+  <link rel='stylesheet prefetch' href='https://googledrive.com/host/0B1RR6fhjI2QROGt0MTFoVkhMdUk/fonts.css'>
+
+	<link rel=icon href=images/favicon.png sizes="16x16" type="images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.min.css'>
+		<script src="js/modernizr.custom.js"></script>
+			<link href="css/lumos.css" rel="stylesheet">
+
+	<link href='https://fonts.googleapis.com/css?family=Cardo:400,700,400italic|Open+Sans:400,800' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900" rel="stylesheet">
+
+	
+    
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	  
+    <![endif]-->
+<style>
+
+
+body {
+height:0;
+}
+
+.house {
+  text-transform: uppercase;
+}
+.house .house__name {
+  font-size: 1.25rem;
+  text-align: right;
+  margin: 0;
+}
+.house .house__motto {
+  margin: .5em 0 0;
+}
+
+.house__name {
+  font-weight: 400;
+}
+
+.house__motto span {
+  display: inline-block;
+  line-height: .8;
+}
+.house__motto .line {
+  display: block;
+}
+
+@media screen and (min-width: 380px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .house .house__name {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 500px) {
+  html {
+    font-size: 90%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 115%;
+  }
+}
+/* ------------------------------------------------------------
+  Layout
+------------------------------------------------------------ */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+
+.great-houses {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1100px;
+}
+
+.house {
+  background-image: url(images/houses-texture.png);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: .5rem;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: center;
+  min-height: 9rem;
+  z-index: 2;
+   font-family: "Cardo", serif;
+}
+.house:after {
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+  content: '';
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.house__name {
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: all .4s ease-in;
+  z-index: 1;
+   font-family: "Cardo", serif;
+}
+.house__name span {
+  position: absolute;
+  right: 1em;
+  z-index: 2;
+   font-family: "Cardo", serif;
+}
+
+.house__motto {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.house:hover .house__name {
+  left: -100%;
+}
+
+@media screen and (min-width: 380px) {
+  .house__name span {
+    right: 15%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .house__name {
+    width: 85%;
+  }
+  .house__name:before, .house__name:after {
+    box-shadow: 4px 0 2px -2px rgba(0, 0, 0, 0.4);
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 0;
+  }
+  .house__name:before {
+    top: -50%;
+    transform-origin: right bottom;
+    transform: rotate(30deg);
+  }
+  .house__name:after {
+    top: 50%;
+    transform-origin: right top;
+    transform: rotate(-30deg);
+  }
+  .house__name span {
+    margin: -.5em auto 0;
+    top: 50%;
+    left: 40%;
+  }
+}
+@media screen and (min-width: 500px) {
+  .great-houses {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+
+  .house {
+    margin: .5rem 1%;
+    width: 48%;
+  }
+
+  .house__name {
+    width: 100%;
+  }
+  .house__name span {
+    bottom: 5%;
+    right: 5%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .house {
+    width: 31.33333333%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .house__motto {
+    padding: 1.5rem 0;
+  }
+}
+
+}
+/* ------------------------------------------------------------
+  Houses Styles
+------------------------------------------------------------ */
+.is--lannister {
+  background-color: #f1b62c;
+  background-position: 0 0;
+  color: #901510;
+}
+.is--lannister .house__name {
+  background-color: #901510;
+  background-image: url(https://f.cl.ly/items/0e3p1s3B1N0B1K1z143a/lannister-logo.png);
+}
+.is--lannister .house__name:before, .is--lannister .house__name:after {
+  background: #901510;
+}
+
+.is--arryn {
+  background-color: #d1cebb;
+  background-position: 0 12.5%;
+  color: #151c53;
+}
+.is--arryn .house__name {
+  background-color: #151c53;
+  background-image: url(https://f.cl.ly/items/171V180i3v1d3h1d0s2Z/arryn-logo.png);
+}
+.is--arryn .house__name:before, .is--arryn .house__name:after {
+  background: #151c53;
+}
+
+.is--baratheon {
+  background-color: #000;
+  background-position: 0 25%;
+  color: #fdce20;
+}
+.is--baratheon .house__name {
+  background-color: #fdce20;
+  background-image: url(https://f.cl.ly/items/1q0z29153j0i2G1q3e11/baratheon-logo.png);
+}
+.is--baratheon .house__name:before, .is--baratheon .house__name:after {
+  background: #fdce20;
+}
+
+.is--stark {
+  background-color: #989898;
+  background-position: 0 37.5%;
+  color: #ece6db;
+}
+.is--stark .house__name {
+  background-color: #ece6db;
+  background-image: url(images/stark-logo.png);
+}
+.is--stark .house__name:before, .is--stark .house__name:after {
+  background: #ece6db;
+}
+
+.is--tully {
+  background-color: #af1d1e;
+  background-position: 0 50%;
+  color: #00173d;
+}
+.is--tully .house__name {
+  background-color: #00173d;
+  background-image: url(https://f.cl.ly/items/1e0v0m281T0k1n1p0C0n/tully-logo.png);
+}
+.is--tully .house__name:before, .is--tully .house__name:after {
+  background: #00173d;
+}
+
+.is--tyrell {
+  background-color: #f1b62e;
+  background-position: 0 62.5%;
+  color: #006600;
+}
+.is--tyrell .house__name {
+  background-color: #006600;
+  background-image: url(https://f.cl.ly/items/1p3r0S2t3W3k2l1P1z1Z/tyrell-logo.png);
+}
+.is--tyrell .house__name:before, .is--tyrell .house__name:after {
+  background: #006600;
+}
+
+.is--greyjoy {
+  background-color: #fecc37;
+  background-position: 0 75%;
+  color: #000;
+}
+.is--greyjoy .house__name {
+  background-color: #000;
+  background-image: url(https://f.cl.ly/items/1d0f3A3v1W0R44201x2F/greyjoy-logo.png);
+}
+.is--greyjoy .house__name:before, .is--greyjoy .house__name:after {
+  background: #000;
+}
+
+.is--martell {
+  background-color: #e12812;
+  background-position: 0 87.5%;
+  color: #faa703;
+}
+.is--martell .house__name {
+  background-color: #faa703;
+  background-image: url(https://f.cl.ly/items/002g3N170h3b0S3P1Z2x/martell-logo.png);
+}
+.is--martell .house__name:before, .is--martell .house__name:after {
+  background: #faa703;
+}
+
+.is--targaryen {
+  background-color: #d13a1b;
+  background-position: 0 100%;
+  color: #000;
+}
+.is--targaryen .house__name {
+  background-color: #000;
+  background-image: url(https://f.cl.ly/items/190u2i0R1X3G040G1v1o/targaryen-logo.png);
+}
+.is--targaryen .house__name:before, .is--targaryen .house__name:after {
+  background: #000;
+}
+
+/* Lannister
+---------------------------------------- */
+.is--lannister .house__name {
+  background-position: -35px 0, 0 0;
+  color: #fff;
+}
+.is--lannister .house__motto span:nth-of-type(1), .is--lannister .house__motto span:nth-of-type(3) {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.is--lannister .house__motto span:nth-of-type(1) {
+  margin-bottom: .1em;
+  text-indent: -3.5rem;
+}
+.is--lannister .house__motto span:nth-of-type(2) {
+  font-size: 1.5rem;
+  position: relative;
+  top: .2em;
+  vertical-align: top;
+  text-indent: 2rem;
+}
+
+@media screen and (min-width: 500px) {
+  .is--lannister .house__name {
+    background-position: -70px 0, 0 0;
+  }
+}
+@media screen and (min-width: 650px) {
+  .is--lannister .house__name {
+    background-position: -35px 0, 0 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .is--lannister .house__name {
+    background-position: -10px 0, 0 0;
+  }
+}
+/* Arryn
+---------------------------------------- */
+.is--arryn .house__name {
+  background-position: -85px 15px, 0 0;
+  color: #fff;
+}
+.is--arryn .house__motto {
+  margin-top: 0;
+}
+.is--arryn .house__motto span:nth-of-type(2), .is--arryn .house__motto span:nth-of-type(4) {
+  font-weight: bold;
+}
+.is--arryn .house__motto span:nth-of-type(2) {
+  font-size: 3rem;
+}
+.is--arryn .house__motto span:nth-of-type(4) {
+  font-size: 2.25rem;
+}
+.is--arryn .house__motto span:nth-of-type(1), .is--arryn .house__motto span:nth-of-type(3) {
+  margin: .25em 0 .3em;
+}
+
+@media screen and (min-width: 1200px) {
+  .is--arryn .house__name {
+    background-position: 10px 15px, 0 0;
+  }
+}
+/* Baratheon
+---------------------------------------- */
+.is--baratheon .house__name {
+  background-position: -55px -55px, 0 0;
+  color: #000;
+}
+.is--baratheon .house__motto .line {
+  margin-bottom: .5em;
+}
+.is--baratheon .house__motto .line span:nth-of-type(1) {
+  font-size: 3.25rem;
+  font-weight: bold;
+}
+.is--baratheon .house__motto .line span:nth-of-type(2) {
+  vertical-align: baseline;
+}
+.is--baratheon .house__motto span:nth-of-type(2) {
+  font-size: 1.5rem;
+  margin: 0 .1em;
+  position: relative;
+  top: .1em;
+  vertical-align: top;
+}
+.is--baratheon .house__motto span:nth-of-type(3) {
+  font-size: 2.75rem;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+  .is--baratheon .house__name {
+    background-position: -50px -35px, 0 0;
+    background-size: 100% auto;
+  }
+}
+@media screen and (min-width: 600px) {
+  .is--baratheon .house__name {
+    background-position: -55px -55px, 0 0;
+    background-size: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .is--baratheon .house__name {
+    background-position: -25px -55px, 0 0;
+    background-size: auto;
+  }
+}
+/* Stark
+---------------------------------------- */
+.is--stark .house__name {
+  background-position: -55px 10px, 0 0;
+  color: #000;
+}
+.is--stark .house__motto span:nth-of-type(1), .is--stark .house__motto span:nth-of-type(3) {
+  font-weight: bold;
+}
+.is--stark .house__motto span:nth-of-type(1) {
+  font-size: 3rem;
+  margin-bottom: .15em;
+}
+.is--stark .house__motto span:nth-of-type(2) {
+  font-size: 1.5rem;
+  vertical-align: top;
+  margin: 0 .15em;
+  position: relative;
+  top: .1em;
+}
+.is--stark .house__motto span:nth-of-type(3) {
+  font-size: 2.5rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .is--stark .house__name {
+    background-position: 5px 10px, 0 0;
+  }
+}
+/* Tully
+---------------------------------------- */
+.is--tully .house__name {
+  background-position: 5px 5px, 0 0;
+  color: #fff;
+}
+.is--tully .house__motto span {
+  font-weight: bold;
+  margin-bottom: .25rem;
+}
+.is--tully .house__motto span:nth-of-type(1) {
+  font-size: 2.3rem;
+}
+.is--tully .house__motto span:nth-of-type(2) {
+  font-size: 3rem;
+}
+.is--tully .house__motto span:nth-of-type(3) {
+  font-size: 2.3rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .is--tully .house__name {
+    background-position: 20px 10px, 0 0;
+  }
+}
+/* Tyrell
+---------------------------------------- */
+.is--tyrell .house__name {
+  background-position: -50px -35px, 0 0;
+  color: #fff;
+}
+.is--tyrell .house__motto span:nth-of-type(1) {
+  font-size: 2.65rem;
+  margin-bottom: .15em;
+}
+.is--tyrell .house__motto span:nth-of-type(2) {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+  .is--tyrell .house__name {
+    background-position: -70px -45px, 0 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .is--tyrell .house__name {
+    background-position: 5px center, 0 0;
+  }
+}
+/* Greyjoy
+---------------------------------------- */
+.is--greyjoy .house__name {
+  background-position: -30px -70px, 0 0;
+  color: #fff;
+}
+.is--greyjoy .house__motto span:nth-of-type(1) {
+  font-size: 2rem;
+}
+.is--greyjoy .house__motto span:nth-of-type(2) {
+  font-size: 2.75rem;
+  font-weight: bold;
+  letter-spacing: -.05em;
+  margin: .1em;
+}
+.is--greyjoy .house__motto span:nth-of-type(3) {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 500px) {
+  .is--greyjoy .house__name {
+    background-position: -30px -45px, 0 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .is--greyjoy .house__name {
+    background-position: 10px 10px, 0 0;
+  }
+}
+/* Martell
+---------------------------------------- */
+.is--martell .house__name {
+  background-position: -60px center, 0 0;
+  color: #000;
+}
+.is--martell .house__motto span:nth-of-type(1), .is--martell .house__motto span:nth-of-type(3) {
+  font-weight: bold;
+}
+.is--martell .house__motto span:nth-of-type(1) {
+  font-size: 2rem;
+}
+.is--martell .house__motto span:nth-of-type(2) {
+  font-size: 2.6rem;
+  margin: .12em 0 .15em;
+}
+.is--martell .house__motto span:nth-of-type(3) {
+  font-size: 1.9rem;
+}
+
+@media screen and (min-width: 500px) {
+  .is--martell .house__name {
+    background-position: -75px center, 0 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .is--martell .house__name {
+    background-position: 5px center, 0 0;
+  }
+}
+/* Targaryen
+---------------------------------------- */
+.is--targaryen .house__name {
+  background-position: -35px 40px, 0 0;
+  color: #fff;
+}
+.is--targaryen .house__motto span:nth-of-type(1), .is--targaryen .house__motto span:nth-of-type(3) {
+  font-weight: bold;
+}
+.is--targaryen .house__motto span:nth-of-type(1) {
+  font-size: 3.25rem;
+  letter-spacing: .1em;
+}
+.is--targaryen .house__motto span:nth-of-type(2) {
+  font-size: 1.25rem;
+  margin: .15em 0 .2em;
+}
+.is--targaryen .house__motto span:nth-of-type(3) {
+  font-size: 2.25rem;
+}
+
+@media screen and (min-width: 500px) {
+  .is--targaryen .house__name {
+    background-position: -60px 5px, 0 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .is--targaryen .house__name {
+    background-position: -30px 20px, 0 0;
+  }
+}
+
+
+</style>
+
+
+	
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="index.html"><img src="images/logo2.png" alt="GoT logo"/></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbar1">
+			  <ul class="nav navbar-nav">
+			
+				
+				<li><a href="map.html">מפת ווסטרוז</a></li>
+				<li class="drop_menu">
+				<a href="#">בתי האצולה</a>
+				<ul class="sub_menu">
+						<li><a href="stark.html">בית סטארק</a></li>
+						<li><a href="targ.html">בית טארגיריין</a></li>
+						<li><a href="lanni.html">בית לאניסטר</a></li>
+						<li><a href="barath.html">בית בראתיון</a></li>
+						<li><a href="grey.html">בית גרייג'וי</a></li>
+					</ul>
+                    </li>					
+					<li><a href="index.html">דף ראשי</a></li>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container -->
+	</nav>
+	
+	
+	
+	
+	
+	
+	
+	
+	<section id="gotsites" class="container-fluid">
+	<div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 noPadding">
+	<h1>בית סטארק</h1>
+	<p> בני משפחת סטארק מוצגים לקורא כדמויות המרכזיות בסיפור, בעיקר בספר הראשון, אך גם בהמשכיו. מלבד שני האחים, רוב סטארק וריקון סטארק, שאר בני המשפחה שימשו גם כנקודת תצפית,  כלומר, שהסיפור מסופר מנקודת מבטם, בפרקים המיוחסים להם. מעוז כוחם הוא טירת ווינטרפל.
+
+
+
+
+סמלם של בית סטארק הוא זאב בלהות אפור על רקע לבן, והאימרה שלהם היא " החורף קרב ובא "
+(Winter is coming)
+
+</p>
+
+<p>
+שושלת סטארק היא המזוהה ביותר עם גזע ראשוני האדם שהגיע ליבשת ווסטרוז בזמנים המכונים עידן השחר. מסופר כי ראשוני האדם פלשו ליבשת ולחמו בתושביה דאז, ילדי היער. עם תום המלחמה נכרת שלום בין הגזעים, וראשוני האדם אף אימצו את האלים של ילדי היער, המכונים כעת "האלים הישנים". אז התחיל עידן הגיבורים. האירוע הבולט ביותר בעבר, הוא המכונה "הלילה הארוך", בו הגיעו ה"אחרים" (ההלכים הלבנים) לראשונה. מסופר על בראנדון הבנאי אשר בעזרתם של ילדי היער והענקים, בנה את חומת הקרח המכושפת שהרחיקה את ה"אחרים" משאר היבשת. אז הוא גם ייסד את טירת ווינטרפל והקים את בית סטארק. צאצאיו של בראנדון הבנאי הכריזו על עצמם כמלכי הצפון ושלטו בווינטרפל עד לכיבושו של אאיגון מבית טארגאריין.
+</p>
+
+
+  
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 noPadding">
+
+ <a class="lumos-link" data-lumos="gallery1" href="images/starks11.png">
+	  <img src="images/starks.png" alt=""  class="img-responsive male">
+	  
+        </a>
+		</div>
+
+		</div>
+		</section>
+		
+		<section id="banner">
+		<article class="house is--stark">
+    <h2 class="house__name"><span>Stark</span></h2>
+    <p class="house__motto"><span class="line">Winter</span> <span>is</span> <span>coming</span></p>
+  </article>
+</section>
+ 
+  <section id="sites" class="container-fluid">
+   <h1>תמונות של משפחת סטארק</h1>
+  <div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding">
+
+ <a class="lumos-link" data-lumos="gallery1" href="images/starkp11.png">
+	  <img src="images/starkp1.png" alt=""  class="img-responsive male">
+        </a>
+<a class="lumos-link" data-lumos="gallery1" href="images/sansjon11.png">
+            <img src="images/sansjon1.png" alt=""  class="img-responsive female">
+        </a>
+		
+		<a class="lumos-link" data-lumos="gallery1" href="images/starkp22.jpg">
+	  <img src="images/starkp2.jpg" alt=""  class="img-responsive female">
+        </a>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding" id="secondsites">
+
+ <a class="lumos-link" data-lumos="gallery1" href="images/wolves11.jpg">
+	  <img src="images/wolves1.jpg" alt=""  class="img-responsive male">
+        </a>
+<a class="lumos-link" data-lumos="gallery1" href="images/brans11.jpg">
+            <img src="images/brans1.jpg" alt=""  class="img-responsive female">
+        </a>
+		
+		<a class="lumos-link" data-lumos="gallery1" href="images/hodor11.jpg">
+	  <img src="images/hodor1.jpg" alt=""  class="img-responsive female">
+        </a>
+		</div>
+		</div>
+		</section>
+		
+		<hr>
+
+
+<section id="starkvideos" class="container-fluid">
+<div class="row">
+<div class="col-lg-4 col-md-3 col-sm-12 col-xs-12 noPadding">
+
+<iframe width="400" height="300" src="https://www.youtube.com/embed/tBRH5s2lsxc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="mapvid"></iframe>
+</div>
+
+<div class="col-lg-4 col-md-3 col-sm-12 col-xs-12 noPadding">
+
+<iframe width="400" height="300" src="https://www.youtube.com/embed/5Isq9hl7Tz8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="mapvid" ></iframe>
+</div>
+<div class="col-lg-4 col-md-3 col-sm-12 col-xs-12 noPadding">
+
+<iframe width="400" height="300" src="https://www.youtube.com/embed/_eSPtc9FadM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="mapvid"></iframe>
+</div>
+</div>
+</section>
+	
+	
+		
+	
+
+
+
+
+
+
+
+
+
+
+	
+<footer>
+<p>&copy; ארז הלון - פרויקט משחקי הכס</p>
+</footer>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	
+	<!-- Your own js files go here; AFTER bootstrap.js -->
+    <script src="js/smoothScroll.js"></script>
+	
+	<!-- lumos JS -->
+	 <script src="js/lumos.js"></script>
+	
+	
+	
+	
+	<script>
+	
+		
+		
+	
+	
+  
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+  function changeVideo(element) {
+		document.getElementById("myVid").src = element.getAttribute('data-large');
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+
+</body>
+</html>

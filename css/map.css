@@ -1,0 +1,398 @@
+
+@font-face {
+font-family: "FbKingFox";
+src: url("GoTSiteProject/fonts/FbKingFox-Regular.eot");
+src: 
+url("GoTSiteProject/fonts/FbKingFox.woff") format("woff"),
+url("GoTSiteProject/fonts/FbKingFox.otf") format("opentype"),
+url("GoTSiteProject/fonts/FbKingFox.svg#filename") format("svg");
+}
+
+
+
+
+
+
+html, body {
+		height: 100%;
+	
+
+		font-style:regular;
+		background:#313131;
+		
+		  -ms-text-size-adjust: 100%;
+
+ -webkit-text-size-adjust: 100%;
+
+
+	}
+
+	
+	.navbar-brand {
+	padding:0;
+	margin-right:40px;
+	height:80px;
+	
+
+}
+.navbar-brand > img {
+	
+	margin-top:-10px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background:none;
+	color:white;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-size:18px;
+	
+
+	line-height:70px;
+	color:#4F525F;
+	font-weight:800;
+
+}
+.navbar-default .navbar-nav > li > a:last-child {
+	border-left:0px;
+
+}
+
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	background:none;
+	color:white;
+}
+
+.nav > li > a {
+	padding-right:28px;
+	padding-left:28px;
+}
+
+.navbar-default {
+background:#323137;
+	z-index:10;
+	border:none;
+	height:80px;
+
+
+		
+}
+
+
+
+#mynav{
+	
+	overflow:hidden;
+	width:100%;
+}
+
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+	
+	float:right;
+}
+
+
+
+
+body {
+	width: 100%;
+
+  background: #313131;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+	color: #1b1b1b;
+}
+
+
+
+
+
+.wrapper {
+	width: 100%;
+	float: left;
+  background: #313131;
+	box-sizing: border-box;
+		-webkit-font-smoothing: antialiased;
+	line-height: 1.1;
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: 700; 
+}
+
+
+
+.controller {
+	width: 50%;
+	padding: 40px 20px;
+	float: left;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.controller h1 {
+	font-size: 60px;
+	margin: 0 0 10px 0;
+	color: #FFFFFF;
+	font-family:"FbKingFox";
+}
+.controller h2 {
+	font-size: 50px;
+	margin: 0 0 40px 0;
+	color: #FFFFFF;
+	font-family:"FbKingFox";
+}
+.controller div {
+	width: 45%;
+	float: left;
+	margin-bottom: 10px;
+	padding: 10px 0;
+	color: #FFFFFF;
+	border: 2px solid #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+	-moz-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+.controller div:nth-child(2n+1) {margin: 0 10% 10px 0;}
+
+.controller div span {font-size: 13px;}
+
+
+.controller .button-beyondthewall.active {
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
+	color: #1b1b1b;
+}
+.controller .button-stark.active {
+	background-color: #d3d3d3;
+	border-color: #d3d3d3;
+	color: #1b1b1b;
+}
+.controller .button-tully.active {
+	background-color: #053993;
+	border-color: #053993;
+	color: #FFFFFF;
+}
+.controller .button-arryn.active {
+	background-color: #3165bb;
+	border-color: #3165bb;
+	color: #FFFFFF;
+}
+.controller .button-greyjoy.active {
+	background-color: #1b1b1b;
+	border-color: #1b1b1b;
+	color: #FFFFFF;
+}
+.controller .button-lannister.active {
+	background-color: #960500;
+	border-color: #960500;
+	color: #FFFFFF;
+}
+.controller .button-tyrell.active {
+	background-color: #569109;
+	border-color: #569109;
+	color: #FFFFFF;
+}
+.controller .button-targaryen.active {
+	background-color: #c52409;
+    border-color: #c52409;
+	color: #FFFFFF;
+}
+.controller .button-baratheon.active {
+	background-color: #e6cd01;
+	border-color: #e6cd01;
+	color: #1b1b1b;
+}
+.controller .button-martell.active {
+	background-color: #e19503;
+	border-color: #e19503;
+	color: #1b1b1b;
+}
+
+
+
+
+.stage-wrapper {
+	width: 50%;
+	float: left;
+}
+.stage {
+	width: 380px;
+	height: 980px;
+	margin: 0 auto;
+	position: relative;
+	/*background-image: url(im/westeros.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;*/
+}
+
+
+.piece-beyondthewall,
+.piece-stark,
+.piece-tully,
+.piece-arryn,
+.piece-greyjoy,
+.piece-lannister,
+.piece-tyrell,
+.piece-targaryen,
+.piece-baratheon,
+.piece-martell {
+	opacity: 0;
+	margin: 0 auto;
+	position: absolute;
+	-moz-transition: .8s ease-in-out;
+  -o-transition: .8s ease-in-out;
+  -webkit-transition: .8s ease-in-out;
+  transition: .8s ease-in-out;
+}
+
+.piece-beyondthewall.active,
+.piece-stark.active,
+.piece-tully.active,
+.piece-arryn.active,
+.piece-greyjoy.active,
+.piece-lannister.active,
+.piece-tyrell.active,
+.piece-targaryen.active,
+.piece-baratheon.active,
+.piece-martell.active {opacity: 1;}
+
+
+.piece-beyondthewall {
+	top: -50%;
+	left: 0;
+}
+.piece-beyondthewall.active {top: 0;}
+
+.piece-stark {
+	top: 110px;
+	left: -50%;
+}
+.piece-stark.active {
+	left: 0;
+	right: 0;
+}
+
+.piece-tully {
+	top: 490px;
+	left: -50%;
+}
+.piece-tully.active {left: 86px;}
+
+.piece-arryn {
+	top: 453px;
+	right: -50%;
+}
+.piece-arryn.active {right: 0;}
+
+.piece-greyjoy {
+	top: 540px;
+	left: -50%;
+}
+.piece-greyjoy.active {left: 10px;}
+
+.piece-lannister {
+	top: 587px;
+	left: -50%;
+}
+.piece-lannister.active {left: 10px;}
+
+
+.piece-tyrell {
+	top: 671px;
+	left: -50%;
+}
+.piece-tyrell.active {left: 10px;}
+
+.piece-targaryen {
+	top: 599px;
+	right: -50%;
+}
+.piece-targaryen.active {right: 17px;}
+
+.piece-baratheon {
+	top: 726px;
+	right: -50%;
+}
+.piece-baratheon.active {right: 8px;}
+
+.piece-martell {
+	top: 845px;
+	right: -50%;
+}
+.piece-martell.active {right: 4px;}
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+
+.controller,
+.stage-wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+.controller div {font-size: 13px;}
+.controller div span {font-size: 7px;}
+
+}
+
+
+
+#maps {
+	padding-top:40px;
+		margin-top:160px;
+
+	margin-bottom:150px;
+		
+margin-right:50px;
+}
+
+
+
+#maps p {
+		font-family: 'Heebo', sans-serif;
+	font-weight:700;
+	font-size:16px;
+	width:98%;
+	direction:rtl;
+	
+	color:white;
+}
+
+#maps h1{
+	font-family:"FbKingFox";
+	width:98%;
+direction:rtl;	
+margin-bottom:20px;
+color:white;
+}
+
+
+#map {
+	
+	margin-bottom:40px;
+	margin-top:-20px;
+	
+}
+
+
+
+
+
+
+
+
+
+
